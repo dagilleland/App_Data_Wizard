@@ -33,18 +33,35 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website(12)", "http://local
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbScriptInstaller", "src\DbScriptInstaller\DbScriptInstaller.csproj", "{4FA3D44A-C044-49B1-B490-A564DCF4AD5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbScriptInstaller.Requirements", "src\DbScriptInstaller.Requirements\DbScriptInstaller.Requirements.csproj", "{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5AF1CF9F-BBAF-4318-9CDE-D5D6BDB4849A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AF1CF9F-BBAF-4318-9CDE-D5D6BDB4849A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF1CF9F-BBAF-4318-9CDE-D5D6BDB4849A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF1CF9F-BBAF-4318-9CDE-D5D6BDB4849A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4FA3D44A-C044-49B1-B490-A564DCF4AD5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA3D44A-C044-49B1-B490-A564DCF4AD5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA3D44A-C044-49B1-B490-A564DCF4AD5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA3D44A-C044-49B1-B490-A564DCF4AD5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5AF1CF9F-BBAF-4318-9CDE-D5D6BDB4849A} = {862F50B2-613C-4188-A712-0E76D93B0E1D}
+		{4FA3D44A-C044-49B1-B490-A564DCF4AD5D} = {862F50B2-613C-4188-A712-0E76D93B0E1D}
+		{94B1AD76-D5F1-4FF5-BC49-64ED8748CFE6} = {862F50B2-613C-4188-A712-0E76D93B0E1D}
 	EndGlobalSection
 EndGlobal
