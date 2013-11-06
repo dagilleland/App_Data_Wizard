@@ -1,6 +1,7 @@
 // TODO: Add XML comments
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.IO;
@@ -35,6 +36,13 @@ namespace DbScriptInstaller
         public static IScriptInstaller CreateInstaller(string serverName, string databaseName, string userId, string password, string providerName)
         {
             return CreateInstaller(string.Format("Data Source={0};Initial Catalog={1};UserId={2};Password={3};", serverName, databaseName, userId, password), providerName);
+        }
+        public static DbScriptInstaller.IScriptInstaller CreateInstaller(ConnectionStringSettings connectionStringSettings)
+        {
+            if(string.IsNullOrEmpty(connectionStringSettings.ProviderName))
+                return CreateInstaller(connectionStringSettings.ConnectionString);
+            else
+                return CreateInstaller(connectionStringSettings.ConnectionString, connectionStringSettings.ProviderName);
         }
     }
 }

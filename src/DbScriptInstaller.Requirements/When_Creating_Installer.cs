@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -46,9 +47,24 @@ namespace DbScriptInstaller.Requirements
             Actual = ScriptInstallerFactory.CreateInstaller(ExpectedConnectionString, ExpectedDatabase, ExpectedUserId, ExpectedPassword, ExpectedProvider);
             Assert.NotNull(Actual);
         }
+
+        [Fact]
+        public void Should_Create_From_ConnectionStringSettings_Without_Provider()
+        {
+            Actual = ScriptInstallerFactory.CreateInstaller(ConfigurationManager.ConnectionStrings["CountryPlain"]);
+            Assert.NotNull(Actual);
+        }
+
+        [Fact]
+        public void Should_Create_From_ConnectionStringSettings_With_Provider()
+        {
+            Actual = ScriptInstallerFactory.CreateInstaller(ConfigurationManager.ConnectionStrings["Country"]);
+            Assert.NotNull(Actual);
+        }
         #endregion
 
         #region Property Tests
+        #region Properties, Fields, Constants
         private IScriptInstaller Actual;
 
         private const string ExpectedServer = ".";
@@ -71,6 +87,7 @@ namespace DbScriptInstaller.Requirements
                 yield return new object[] { ScriptInstallerFactory.CreateInstaller(ExpectedServer, ExpectedDatabase, ExpectedUserId, ExpectedPassword, ExpectedProvider), ExpectedConnectionStringWithPassword, ExpectedProviderFactory };
             }
         }
+        #endregion
 
         [Theory]
         [PropertyData("TestInstallers")]
