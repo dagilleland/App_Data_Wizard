@@ -12,7 +12,7 @@ namespace DbScriptInstaller
     public class RunnableScript
     {
         public string SQLScript { get; set; }
-        public bool Installed { get; set; }
+        public bool? Installed { get; set; }
         public string FailureMessage { get; set; }
     }
 }

@@ -28,7 +28,14 @@ namespace DbScriptInstaller
         /// <param name="scripts">A collection of RunnableScript objects.</param>
         /// <returns></returns>
         List<ScriptFile> Install(ICollection<RunnableScript> scripts);
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scripts">A ScriptFile object.</param>
+        /// <returns></returns>
+        List<ScriptFile> Install(ScriptFile scriptFile);
+
         /// <summary>
         /// Processes a collection of script files to be run on the database.
         /// </summary>

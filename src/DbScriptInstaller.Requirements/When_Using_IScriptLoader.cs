@@ -18,7 +18,23 @@ namespace DbScriptInstaller.Requirements
         [Fact] // TODO: Change to [Theory]
         public void Should_Parse_Script_Files()
         {
-            throw new NotImplementedException();
+            // Arrange
+            ICollection<string> filePaths = new List<string>();
+            string path;
+            string assemblyFile = (
+                new System.Uri(Assembly.GetExecutingAssembly().CodeBase)
+            ).AbsolutePath;
+
+            path = Path.Combine(Path.GetDirectoryName(assemblyFile), @"TestScripts\CreateTables.sql");
+            filePaths.Add(path);
+
+            IScriptLoader loader = ScriptInstallerFactory.CreateLoader(filePaths);
+
+            // Act
+            ICollection<RunnableScript> scripts = loader.Scripts;
+
+            // Assert
+            Assert.Equal(5, scripts.Count);
         }
 
         [Fact] // TODO: Change to [Theory]

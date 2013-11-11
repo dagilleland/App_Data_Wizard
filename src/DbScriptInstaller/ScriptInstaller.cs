@@ -86,7 +86,7 @@ namespace DbScriptInstaller
             int errorCount = 0;
             foreach (ScriptFile script in allScripts)
                 foreach (var executedBlock in script.ScriptBlocks)
-                    if (!executedBlock.Installed)
+                    if (!executedBlock.Installed.Value)
                         errorCount++;
 
             return allScripts;
@@ -102,12 +102,20 @@ namespace DbScriptInstaller
             throw new NotImplementedException("not yet implemented");
         }
 
+        public List<ScriptFile> Install(ScriptFile scriptFile)
+        {
+            if (scriptFile == null)
+                throw new ArgumentNullException("scriptFile", "scriptFile is null.");
+
+            return Install(scriptFile.ScriptBlocks);
+        }
+
         public List<ScriptFile> Install(IScriptLoader scriptLoader)
         {
             if (scriptLoader == null)
                 throw new ArgumentNullException("scriptLoader", "scriptLoader is null.");
 
-            throw new NotImplementedException();
+            return Install(scriptLoader.Scripts);
         }
         #endregion
 

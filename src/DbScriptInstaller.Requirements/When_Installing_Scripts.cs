@@ -53,12 +53,12 @@ namespace DbScriptInstaller.Requirements
                 new System.Uri(Assembly.GetExecutingAssembly().CodeBase)
             ).AbsolutePath;
 
-            path = Path.Combine(assemblyFile, @"TestScripts\CreateTables.sql");
+            path = Path.Combine(Path.GetDirectoryName(assemblyFile), @"TestScripts\CreateTables.sql");
             filePaths.Add(path);
-            path = Path.Combine(assemblyFile,@"TestScripts\InstallData.sql");
+            path = Path.Combine(Path.GetDirectoryName(assemblyFile), @"TestScripts\InstallData.sql");
             filePaths.Add(path);
 
-            IScriptLoader loader = ScriptInstallerFactory.CreateLoader(null);
+            IScriptLoader loader = ScriptInstallerFactory.CreateLoader(filePaths);
 
             // Act, Assert
             Assert.DoesNotThrow(() => Actual.Install(loader));

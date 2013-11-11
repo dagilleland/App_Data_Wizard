@@ -113,6 +113,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Country.mdf</DependentUpon>
     </Content>
+    <Content Include="DatabaseSetup\dbo.ISO639_2.data.sql" />
+    <Content Include="DatabaseSetup\dbo.ISO639_2.sql" />
     <Content Include="TestScripts\CreateTables.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -120,6 +122,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

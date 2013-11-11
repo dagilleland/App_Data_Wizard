@@ -11,6 +11,7 @@ namespace DbScriptInstaller
 {
     public interface IScriptLoader
     {
-
+        ICollection<RunnableScript> Scripts {get;}
+        ICollection<ScriptFile> ScriptFiles {get;}
     }
 }
