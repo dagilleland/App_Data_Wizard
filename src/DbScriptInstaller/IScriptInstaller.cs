@@ -15,12 +15,26 @@ namespace DbScriptInstaller
         DbProviderFactory Factory { get; }
         string ConnectionString { get; }
 
-        List<ScriptFile> Install(IEnumerable<RunnableScript> scripts);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scriptLoader">An IScriptLoader that has information for loading SQL script files.</param>
+        /// <returns></returns>
+        List<ScriptFile> Install(IScriptLoader scriptLoader);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="scripts">A collection of RunnableScript objects.</param>
+        /// <returns></returns>
+        List<ScriptFile> Install(ICollection<RunnableScript> scripts);
+        
         /// <summary>
         /// Processes a collection of script files to be run on the database.
         /// </summary>
-        /// <param name="scriptFiles">A collection of complete file paths to SQL script files.</param>
-        List<ScriptFile> Install(IEnumerable<string> scriptFiles);
+        /// <param name="scriptFiles">A collection of SQL script files.</param>
+        List<ScriptFile> Install(ICollection<string> scriptFiles);
+
         /// <summary>
         /// Simple test of whether we can connect to & execute scripts against the database
         /// </summary>

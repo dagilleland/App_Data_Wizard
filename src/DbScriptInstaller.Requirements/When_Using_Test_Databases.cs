@@ -34,4 +34,38 @@ namespace DbScriptInstaller.Requirements
             Assert.Equal<string>(null, exceptionMessage);
         }
     }
+
+    // TODO: Re-instate these test for self-checking Requirements
+    //public class When_Running_DDL_Scripts
+    //{
+    //}
+    //public class Requirements_Self_Check
+    //{
+    //    private DbCommand Command
+    //    {
+    //        get
+    //        {
+    //            var setting = ConfigurationManager.ConnectionStrings["Country"];
+    //            var factory = DbProviderFactories.GetFactory(setting.ProviderName);
+    //            var conn = factory.CreateConnection();
+    //            conn.ConnectionString = setting.ConnectionString;
+    //            var cmd = factory.CreateCommand();
+    //            cmd.Connection = conn;
+    //            return cmd;
+    //        }
+    //    }
+
+    //    [Fact(Skip="Incomplete")]
+    //    public void Should_Have_Test_Database()
+    //    {
+            
+    //    }
+
+    //    [Theory(Skip="Incomplete")]
+    //    [InlineData("")]
+    //    public void Should_Have_Tables_In_Test_Database(string tableName)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }

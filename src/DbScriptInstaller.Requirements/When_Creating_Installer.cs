@@ -10,7 +10,8 @@ using Xunit.Extensions;
 
 namespace DbScriptInstaller.Requirements
 {
-    public class When_Creating_Installer
+    // TODO: Rename file
+    public class When_Creating_Installer_From_Factory
     {
         #region Instantiation Tests
         [Fact]

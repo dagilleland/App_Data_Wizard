@@ -40,11 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IScriptInstaller.cs" />
+    <Compile Include="IScriptLoader.cs" />
     <Compile Include="ScriptInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunnableScript.cs" />
     <Compile Include="ScriptFile.cs" />
     <Compile Include="ScriptInstallerFactory.cs" />
+    <Compile Include="ScriptLoader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

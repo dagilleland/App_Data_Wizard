@@ -13,6 +13,7 @@ namespace DbScriptInstaller
 {
     public class ScriptInstallerFactory
     {
+        #region Builders for IScriptInstaller
         public const string DEFAULT_PROVIDER_NAME = "System.Data.SqlClient";
 
         public static IScriptInstaller CreateInstaller(string connectionString, string providerName)
@@ -39,10 +40,19 @@ namespace DbScriptInstaller
         }
         public static DbScriptInstaller.IScriptInstaller CreateInstaller(ConnectionStringSettings connectionStringSettings)
         {
-            if(string.IsNullOrEmpty(connectionStringSettings.ProviderName))
+            if (string.IsNullOrEmpty(connectionStringSettings.ProviderName))
                 return CreateInstaller(connectionStringSettings.ConnectionString);
             else
                 return CreateInstaller(connectionStringSettings.ConnectionString, connectionStringSettings.ProviderName);
         }
+        #endregion
+
+        #region Builders for IScriptLoader
+        public static IScriptLoader CreateLoader(ICollection<string> filePaths)
+        {
+            IScriptLoader loader = new ScriptLoader(filePaths);
+            return loader;
+        }
+        #endregion
     }
 }

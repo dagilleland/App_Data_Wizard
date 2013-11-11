@@ -72,8 +72,13 @@ namespace DbScriptInstaller
         /// Processes a collection of script files to be run on the database.
         /// </summary>
         /// <param name="scriptFiles">A collection of complete file paths to SQL script files.</param>
-        public List<ScriptFile> Install(IEnumerable<string> scriptFiles)
+        public List<ScriptFile> Install(ICollection<string> scriptFiles)
         {
+            if (scriptFiles == null)
+                throw new ArgumentNullException("scriptFiles", "scriptFiles is null.");
+            if (scriptFiles.Count == 0)
+                throw new ArgumentException("scriptFiles", "scriptFiles is empty");
+
             List<ScriptFile> allScripts = new List<ScriptFile>();
             foreach (string script in scriptFiles)
                 allScripts.Add(new ScriptFile() { FilePath = script, ScriptBlocks = RunInstallationScript(script) });
@@ -87,9 +92,22 @@ namespace DbScriptInstaller
             return allScripts;
         }
 
-        public List<ScriptFile> Install(IEnumerable<RunnableScript> scripts)
+        public List<ScriptFile> Install(ICollection<RunnableScript> scripts)
         {
+            if (scripts == null)
+                throw new ArgumentNullException("scripts", "scripts is null.");
+            if (scripts.Count == 0)
+                throw new ArgumentException("scripts", "scripts is empty");
+
             throw new NotImplementedException("not yet implemented");
+        }
+
+        public List<ScriptFile> Install(IScriptLoader scriptLoader)
+        {
+            if (scriptLoader == null)
+                throw new ArgumentNullException("scriptLoader", "scriptLoader is null.");
+
+            throw new NotImplementedException();
         }
         #endregion
 
